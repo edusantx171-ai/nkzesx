@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Clientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="login" class="container">
+    <div class="card">
+      <h2>🔐 Área de Login</h2>
+      <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit" class="btn">Entrar no Sistema</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="app" class="container" style="display: none;">
+    <div class="card">
+      <h1>📋 Cadastro de Cliente - Quiz Interativo</h1>
+      
+      <div id="quiz-container">
+        <div class="quiz-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="progress-text">Pergunta <span id="current-question">1</span> de <span id="total-questions">10</span></p>
+        </div>
+
+        <div class="quiz-content">
+          <div class="question-container" data-question="1">
+            <h3>📌 Qual é o nome completo do cliente?</h3>
+            <input type="text" id="nome" placeholder="Digite o nome completo" required>
+          </div>
+
+          <div class="question-container" data-question="2" style="display: none;">
+            <h3>📧 Quais são os e-mails do cliente?</h3>
+            <input type="text" id="emails" placeholder="Separe múltiplos e-mails com vírgula">
+          </div>
+
+          <div class="question-container" data-question="3" style="display: none;">
+            <h3>📍 Qual é o endereço completo?</h3>
+            <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade, estado">
+          </div>
+
+          <div class="question-container" data-question="4" style="display: none;">
+            <h3>🛒 Quais foram os pedidos recentes?</h3>
+            <input type="text" id="pedidos_recentes" placeholder="Liste os pedidos recentes">
+          </div>
+
+          <div class="question-container" data-question="5" style="display: none;">
+            <h3>🛍️ O que tem no carrinho atual?</h3>
+            <input type="text" id="carrinho" placeholder="Itens no carrinho">
+          </div>
+
+          <div class="question-container" data-question="6" style="display: none;">
+            <h3>💳 Qual é o cartão cadastrado?</h3>
+            <input type="text" id="cartao" placeholder="Últimos 4 dígitos ou tipo do cartão">
+          </div>
+
+          <div class="question-container" data-question="7" style="display: none;">
+            <h3>⭐ Quais assinaturas o cliente possui?</h3>
+            <input type="text" id="assinaturas" placeholder="Planos e assinaturas ativas">
+          </div>
+
+          <div class="question-container" data-question="8" style="display: none;">
+            <h3>📱 Quais dispositivos estão cadastrados?</h3>
+            <input type="text" id="dispositivos" placeholder="Celular, tablet, computador...">
+          </div>
+
+          <div class="question-container" data-question="9" style="display: none;">
+            <h3>💰 Qual é o valor do vale presente?</h3>
+            <input type="number" id="vale" placeholder="0.00" step="0.01" min="0">
+          </div>
+
+          <div class="question-container" data-question="10" style="display: none;">
+            <h3>📝 Informações extras sobre o cliente</h3>
+            <textarea id="extra" placeholder="Adicione quaisquer informações adicionais que sejam importantes sobre este cliente..." rows="5"></textarea>
+          </div>
+        </div>
+
+        <div class="quiz-navigation">
+          <button type="button" class="btn btn-secondary" id="btn-anterior" disabled>← Anterior</button>
+          <button type="button" class="btn" id="btn-proximo">Próximo →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>👥 Clientes Cadastrados</h2>
+      <ul id="lista-clientes"></ul>
+      <a href="/logout" class="btn logout">Sair do Sistema</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
